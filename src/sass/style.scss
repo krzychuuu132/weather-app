@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 20px;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../img/wheather-picture_small.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+   
+
+  
+
+    @media(min-width:1280px){
+        background-image: url("../img/wheather-picture_medium.jpg");
+    }
+    @media(min-width:1900px){
+        background-image: url("../img/wheather-picture_big.jpg");
+    }
+}
+
+@import "./Weather.scss"
+
