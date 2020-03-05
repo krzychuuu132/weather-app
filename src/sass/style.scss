@@ -19,6 +19,7 @@ body{
     align-items: center;
     min-height: 100vh;
     position: relative;
+    color: white;
    
 
   
@@ -31,5 +32,10 @@ body{
     }
 }
 
+#root{
+    width: 100%;
+}
+
+@import "./App.scss";
 @import "./Weather.scss"
 

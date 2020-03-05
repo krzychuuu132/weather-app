@@ -1,0 +1,89 @@
+$default-padding-left:80px;
+
+.weather-content{
+    
+
+    &__date{
+        padding-left: $default-padding-left;
+        font-size: 0.8em;
+        padding-bottom: 5px;
+    }
+
+    &__month{
+        padding-left: $default-padding-left;
+    }
+
+    &__details{
+        width: 100%;
+        height: 250px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+@media(min-width:475px){
+         flex-direction: row;
+         align-items: initial;
+         height: 200px;
+                  }
+        @media(min-width:780px){
+            width: 70%;
+        }
+        
+        &-main{
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &_temp{
+                
+                font-size: 5em;
+                margin-bottom: 0;
+                height: 120px;
+                font-weight: bold;
+            }
+
+            &-feel{
+                font-size: 1em;  
+            }
+        }
+
+        &-info{
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        
+
+            &_element{
+                flex-grow: 1;
+                height: 50%;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              
+            }
+
+            &_state{
+                margin-bottom: 0;
+                font-size: 0.7em;
+            }
+
+            &_value{
+                font-weight: bold;
+            }
+
+            &_icon{
+                margin-right: 10px;
+                font-size: 1.5em;
+            }
+        }
+    }
+
+   
+}
+
+
