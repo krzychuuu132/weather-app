@@ -40,6 +40,11 @@
     color: white;
     font-size: 0.9em; 
     margin-bottom: 20px;
+    transition: all .3s;
+
+    &--error{
+        border-color: red;
+    }
     @media(min-width:475px){
        margin-bottom: 0;
              }
@@ -52,11 +57,17 @@
    text-align: center;
 text-transform: uppercase;
 
-font-size: 0.5em;
+    font-size: 0.5em;
 width: 140px;
 padding: 10px 0;
 letter-spacing: 2px;
 font-weight: bold;
+transition: all .3s;
+outline: none !important;
+
+&--error{
+    background-color: red;
+}
 } 
 }
 

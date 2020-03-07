@@ -11,6 +11,11 @@ $default-padding-left:80px;
 
     &__month{
         padding-left: $default-padding-left;
+
+        &-icon{
+            font-size: .4em; 
+        vertical-align: 5px;  
+        margin-left: 20px;     }
     }
 
     &__details{
@@ -59,12 +64,14 @@ $default-padding-left:80px;
             &_element{
                 flex-grow: 1;
                 height: 50%;
-                
+                margin: 0 10px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-              
+              @media (min-width:475px) {
+                  margin:0
+              }
             }
 
             &_state{

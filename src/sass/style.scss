@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -21,13 +22,15 @@ body{
     position: relative;
     color: white;
    
-
+    @media(min-width:600px){
+        background-image: url("../img/wheather-picture_small-two.jpg");
+    }
   
 
-    @media(min-width:1280px){
+    @media(min-width:900px){
         background-image: url("../img/wheather-picture_medium.jpg");
     }
-    @media(min-width:1900px){
+    @media(min-width:1600px){
         background-image: url("../img/wheather-picture_big.jpg");
     }
 }
