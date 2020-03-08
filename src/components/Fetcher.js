@@ -1,22 +1,38 @@
 import Axios from 'axios'
 
-export default function Fetcher(url){
+export default function Fetcher(url,setError){
     
 
     
 const loadData = async ()=>{
-        const response = await Axios.get(url)
-               
-       
-           return response
+     
+    try{
         
-    }
+       
+        const response = await Axios.get(url)
 
-   const data =  loadData();
+        return response
+    }
+   catch(error){
+      setError(true)
+       return
+   }
+
+
+
+         
+         
+}
+        
+
+const data =  loadData();
+return data
+
+   
 
    
   
-    return data
+    
 
     
 }

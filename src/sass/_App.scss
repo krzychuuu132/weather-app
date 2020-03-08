@@ -29,6 +29,10 @@
         margin: 0;
         text-align: left;
               }
+              @media(min-width:615px){
+               
+                text-align: center;
+                      }
    
   &-data{
     background-color: transparent;
@@ -47,7 +51,11 @@
     }
     @media(min-width:475px){
        margin-bottom: 0;
+       margin: 15px 25px;
              }
+               @media(min-width:600px){
+            margin: 0 25px;
+               }
 }  
 
 &-btn{
@@ -64,7 +72,14 @@ letter-spacing: 2px;
 font-weight: bold;
 transition: all .3s;
 outline: none !important;
-
+@media(min-width:615px){
+               
+    margin-top: 20px;
+          }
+          @media(min-width:755px){
+            margin-top: 0px;
+          
+  } 
 &--error{
     background-color: red;
 }

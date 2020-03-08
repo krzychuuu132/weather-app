@@ -19,9 +19,9 @@ const App=()=> {
   useEffect(() => {
       const APIKEY ="3685edcdeb2b60f9ec66ee97605d3489"
   
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&APPID=${APIKEY}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&APPID=${APIKEY}`
     async function getData(){
-      const data = await Fetcher(url)
+      const data = await Fetcher(url,setError)
       setData(data.data)
     }
     getData()
@@ -52,7 +52,7 @@ const App=()=> {
           value={country}
           onChange={(e)=>setCountry(e.target.value)}
           />
-        <button onClick={()=>handleClick(setData,city,country,setError,setCity,setCountry)} className={error?"App__options-btn App__options-btn--error":"App__options-btn" }>Search</button>
+        <button onClick={()=>handleClick(setData,city,country,setError,setCity,setCountry,error)} className={error?"App__options-btn App__options-btn--error":"App__options-btn" }>Search</button>
         </div>
         </div>
         <Weather data={data}/>

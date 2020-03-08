@@ -37,6 +37,7 @@
     "axios": "^0.19.2",
     "axios-hooks": "^1.9.0",
     "bootstrap": "^4.4.1",
+    "gsap": "^3.2.4",
     "weather-icons": "git+https://github.com/erikflowers/weather-icons.git"
   }
 }

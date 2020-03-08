@@ -1,21 +1,39 @@
-$default-padding-left:80px;
+$default-padding-left-small:30px;
+$default-padding-left-big:80px;
 
 .weather-content{
-    
+        
 
     &__date{
-        padding-left: $default-padding-left;
+        padding-left: $default-padding-left-small;
         font-size: 0.8em;
         padding-bottom: 5px;
+        @media(min-width:600px){
+            padding-left: $default-padding-left-big;
+        }
     }
 
     &__month{
-        padding-left: $default-padding-left;
+        padding-left: $default-padding-left-small;
+        display: flex;
+      
+        align-items: center;
+        @media(min-width:600px){
+            padding-left: $default-padding-left-big;
+        }
 
         &-icon{
-            font-size: .4em; 
+            font-size: .35em; 
         vertical-align: 5px;  
-        margin-left: 20px;     }
+        margin-left: 20px;    
+     }
+
+        &-description{
+            font-size: .4em;
+            margin-bottom: 0;
+            margin: 0 20px;
+           
+        }
     }
 
     &__details{

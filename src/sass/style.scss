@@ -21,6 +21,7 @@ body{
     min-height: 100vh;
     position: relative;
     color: white;
+    overflow-x: hidden;
    
     @media(min-width:600px){
         background-image: url("../img/wheather-picture_small-two.jpg");
