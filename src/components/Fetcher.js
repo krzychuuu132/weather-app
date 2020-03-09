@@ -2,8 +2,6 @@ import Axios from 'axios'
 
 export default function Fetcher(url,setError){
     
-
-    
 const loadData = async ()=>{
      
     try{
@@ -23,16 +21,8 @@ const loadData = async ()=>{
          
          
 }
-        
 
 const data =  loadData();
 return data
 
-   
-
-   
-  
-    
-
-    
-}
+   }

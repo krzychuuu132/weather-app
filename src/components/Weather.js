@@ -1,4 +1,4 @@
-import React,{useEffect,useRef} from 'react';
+import React,{useEffect} from 'react';
 import Fetcher from "./Fetcher"
 import gsap from "gsap"
 
@@ -39,7 +39,7 @@ const months = ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec"
   const date = new Date();
 const day = date.getDate();
 const month = date.getMonth();
-console.log(date,day)
+
 
 return `${day} ${months[month]}`
 }
@@ -53,15 +53,7 @@ const getDegree = (temp)=>{
   return celcius
 }
 const ShowWeatherContent =  (data)=>{
- 
-
-
-
-
-
-
-
-
+  
   const dataApi = data.main===undefined
 
   return(
@@ -72,9 +64,9 @@ const ShowWeatherContent =  (data)=>{
        
         <div className="weather-content__text">
           <h5 className="weather-content__date">{getDate()}</h5>
-          <h1 className="weather-content__month">{data.name} <span className="fas fa-arrow-right weather-content__month-icon"></span><p className="weather-content__month-description">{dataApi?"...":data.weather[0].description}</p></h1>
+          <h1 className="weather-content__month" id="month">{data.name} <span className="fas fa-arrow-right weather-content__month-icon" ></span><p className="weather-content__month-description" >{dataApi?"...":data.weather[0].description}</p></h1>
   </  div>
-    <div className="weather-content__details" >
+    <div className="weather-content__details" id="wrapper">
       <div className="weather-content__details-main" id="temp">
        <p className="weather-content__details-main_temp">{dataApi?"...":getDegree(data.main.temp)}&deg;</p>
        <span className="weather-content__details-main-feel">feels like {dataApi?"...":getDegree(data.main.temp_min)}&deg;</span>
@@ -93,45 +85,50 @@ const ShowWeatherContent =  (data)=>{
   <span className="weather-content__details-info_value">{dataApi?"...":data.wind.speed} km/h</span>
         </div>
         <div className="weather-content__details-info_element">
-        <p className="weather-content__details-info_state"><span className="wi wi-humidity weather-content__details-info_icon"></span>Rain</p>
+        <p className="weather-content__details-info_state"><span className="wi wi-humidity weather-content__details-info_icon"></span>Humidity</p>
           <span className="weather-content__details-info_value">{dataApi?"...":data.main.humidity}%</span>
         </div>
       </div>
     </div>
         
         </>
+    )
+}
+
+export const showComponents = (wrapper)=>{
+  
+const month = document.getElementById("month");
+  const temp = document.getElementById("temp");
+  const container = document.getElementById("wrapper");
+  const info = document.getElementById("info");
       
-    
-    
-    
-   
-  )
+  gsap.set([temp,container,info.children,month],{autoAlpha:0});
+  gsap.set(temp,{transformOrigin:'50% 50%'})
+  gsap.set(month,{transformOrigin:'50% 100%'})
+  const tl = gsap.timeline({defaults:{ease:"power3.inOut"}});
+
+  tl.fromTo(month,{x:"30px",scaleX:0.7},{duration:.5, x:"0",scaleX:1,autoAlpha:1})
+  tl.fromTo(container,{x:"-300px"},{duration:.5, x:"0",autoAlpha:1})
+  tl.fromTo(temp,{scaleX:0.7},{duration:.2,scaleX:1,autoAlpha:1})
+  tl.fromTo(info.children,{y:-30 },{duration:.2,y:0,autoAlpha:1,stagger:.2})
 }
 const Weather=(props)=> {
-  const wrapper = useRef(null)
+
   useEffect(()=>{
-    const [elements] = wrapper.current.children;
-   
+    
+  showComponents(props.wrapper)
+ 
   
-      const temp = document.getElementById("temp");
-      
-  
-      //const info = elements.getElementById("temp");
-  
-      gsap.set([temp],{autoAlpha:0});
-
-      const tl = gsap.timeline({defaults:{ease:"power3.inOut"}});
-
-      gsap.fromTo(temp,{x:"-=300"},{duration:.5, x:"+=300",autoAlpha:1})
+     
   },[])
 
 
 return (
       <>
        
-        <div className="weather-content" ref={wrapper}>
+       
         {ShowWeatherContent(props.data)}
-        </div>
+        
      </>
     );
   }
